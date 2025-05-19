@@ -1,0 +1,21 @@
+header:
+  version: 10
+
+machine: qemuriscv32
+distro: poky
+target: baremetal-helloworld
+
+repos:
+  poky:
+    url: https://git.yoctoproject.org/git/poky
+    branch: kirkstone
+    layers: 
+      meta:
+      meta-poky:
+      meta-yocto-bsp:
+      meta-skeleton:
+
+local_conf_header:
+  meta-custom: |
+    TMPDIR = "/opt/tmp"
+    TCLIBC = "newlib"

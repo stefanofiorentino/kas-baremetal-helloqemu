@@ -1,0 +1,20 @@
+{
+  "name": "Yocto Project LTS",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "/bin/bash"
+  },
+  "extensions": [
+    "ms-vscode.cpptools",
+    "ms-vscode.cmake-tools",
+    "ms-vscode.remote-containers",
+    "ms-azuretools.vscode-docker"
+  ],
+  "mounts": [
+    "source=${localWorkspaceFolder}/.devcontainer,target=/workspaces/.devcontainer,type=bind,consistency=cached"
+  ],
+  "remoteUser": "builder"
+}

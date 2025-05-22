@@ -18,4 +18,4 @@ repos:
 local_conf_header:
   meta-custom: |
     TMPDIR = "/opt/tmp"
-    TCLIBC = "newlib"
+    TCLIBC = "baremetal"

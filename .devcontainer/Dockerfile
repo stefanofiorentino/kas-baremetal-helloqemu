@@ -48,6 +48,14 @@ RUN chown -R builder:builder /opt/tmp
 USER builder
 WORKDIR /home/builder
 
+# Add the function and PS1 export to .bashrc
+RUN echo '\n\
+parse_git_branch() {\n\
+  git branch 2>/dev/null | sed -e "/^[^*]/d" -e "s/* \\(.*\\)/ (\\1)/"\n\
+}\n\
+export PS1="\\u@\\h \\[\\033[32m\\]\\w\\[\\033[33m\\]\$(parse_git_branch)\\[\\033[00m\\] \$ "\n\
+' >> /home/builder/.bashrc
+
 # Entry point (optional)
 CMD [ "bash" ]
 
